@@ -2,7 +2,7 @@
 class Home extends MY_Controller {
     public function index()  {
         $data = array();
-            $this->data['temp'] = 'admin/home/index';
-            $this->load->view('admin/main',$this->data);
+        $this->data['temp'] = 'admin/home/index';
+        $this->load->view('admin/main',$this->data);
     }
 }

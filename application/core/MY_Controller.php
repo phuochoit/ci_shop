@@ -14,6 +14,7 @@ class MY_Controller extends CI_Controller
         {
             case 'admin':{
                 // is admin
+                $this->load->helper('admin');
                 break;
             }
             default: 
