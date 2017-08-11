@@ -16,7 +16,11 @@
                  <?php $this->load->view('site/left');?>
             </div>
             <div class="content">
-                <?php $this->load->view('site/content');?>
+                <?php
+                    if(isset($temp)){
+                        $this->load->view($temp);
+                    }                
+                ?>
             </div>
             <div class="right">
                 <?php $this->load->view('site/right');?>

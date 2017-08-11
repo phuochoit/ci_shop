@@ -16,7 +16,7 @@
 <script type="text/javascript" src="<?php print public_url()?>/site/raty/jquery.raty.min.js"></script>
 <script type="text/javascript">
    $(function() {
-      $.fn.raty.defaults.path = 'raty/img';
+      $.fn.raty.defaults.path = '<?php print public_url()?>/site/raty/img';
       $('.raty').raty({
        	  score: function() {
        	    return $(this).attr('data-score');
