@@ -11,7 +11,7 @@
       <!-- Left navigation -->
       <ul id="menu" class="nav">
          <li class="home">
-            <a href="admin/home.html" class="active" id="current">
+            <a href="<?php print admin_url()?>" class="active" id="current">
             <span>Bảng điều khiển</span>
             <strong></strong>
             </a>
@@ -59,7 +59,7 @@
             </a>
             <ul class="sub" style="display: none;">
                <li>
-                  <a href="admin/admin.html">
+                  <a href="<?php print admin_url('admin')?>">
                   Ban quản trị							</a>
                </li>
                <li>
