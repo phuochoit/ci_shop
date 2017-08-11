@@ -1,6 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends MY_Controller {
     public function index()  {
-        echo "Login";
+        $data = array();
+            $data['temp'] = 'admin/login/index';
+            $this->load->view('admin/login/index',$data);
     }
 }
