@@ -208,7 +208,27 @@ class MY_Model extends CI_Model {
 		//echo $this->db->last_query();
 		return $query->result();
 	}
-	
+	/**
+	* Lay danh sach theo cac field
+	* $input : mang cac du lieu dau vao
+	* $field : cac field du lieu 
+	*/
+	function get_list_multiple_field($input = array(),$field)
+	{
+		if($field)
+	    {
+	        $this->db->select($field);
+		}
+		
+		//xu ly ca du lieu dau vao
+		$this->get_list_set_input($input);
+		
+		//thuc hien truy van du lieu
+		$query = $this->db->get($this->table);
+		//echo $this->db->last_query();
+		return $query->result();
+	}
+
 	/**
 	 * Gan cac thuoc tinh trong input khi lay danh sach
 	 * $input : mang du lieu dau vao

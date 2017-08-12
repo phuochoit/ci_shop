@@ -10,22 +10,27 @@
                 <img src="<?php print public_url('/admin/')?>images/icons/dark/laptop.png" alt="" class="titleIcon">
                 <h6>Đăng nhập</h6>
             </div>
+            <?php print form_error('login');?>
             <form class="form" id="form" action="" method="post">
                 <fieldset>
                     <div class="formRow">
-                    <label for="param_username">Tên đăng nhập:</label>
-                    <div class="loginInput"><input name="username" id="param_username" type="text"></div>
-                    <div class="clear"></div>
+                        <label for="param_username">Tên đăng nhập:</label>
+                        <div class="loginInput">
+                            <input name="username" id="param_username" type="text">
+                        </div>
+                        <div class="clear"></div>
                     </div>
                     <div class="formRow">
-                    <label for="param_password">Mật khẩu:</label>
-                    <div class="loginInput"><input name="password" id="param_password" type="password"></div>
-                    <div class="clear"></div>
+                        <label for="param_password">Mật khẩu:</label>
+                        <div class="loginInput">
+                            <input name="password" id="param_password" type="password">
+                        </div>
+                        <div class="clear"></div>
                     </div>
                     <div class="loginControl">
-                    <input name="submit" value="1" type="hidden">
-                    <input value="Đăng nhập" class="dredB logMeIn" type="submit">
-                    <div class="clear"></div>
+                        <input name="submit" value="1" type="hidden">
+                        <input value="Đăng nhập" class="dredB logMeIn" type="submit">
+                        <div class="clear"></div>
                     </div>
                 </fieldset>
             </form>

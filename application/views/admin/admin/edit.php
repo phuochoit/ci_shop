@@ -21,7 +21,7 @@
                     <label class="formLeft" for="param_username">User Name:<span class="req">*</span></label>
                     <div class="formRight">
                         <span class="oneTwo">
-                            <input name="username" id="param_username" _autocheck="true" type="text" value="<?php print print $info->username;?>">
+                            <input name="username" id="param_username" _autocheck="true" type="text" value="<?php print $info->username;?>">
                         </span>
                         <span name="name_autocheck" class="autocheck"></span>
                         <div name="name_error" class="clear error"><?php print form_error('username');?></div>

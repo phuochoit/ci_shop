@@ -160,4 +160,14 @@ class Admin extends MY_Controller
         redirect(admin_url('admin'));
         
     }
+
+    //logout admin
+    public function logout()
+    {
+        if($this->session->userdata('login')){
+            $this->session->unset_userdata('login');
+            
+        }
+        redirect(admin_url('login'));
+    }
 }
