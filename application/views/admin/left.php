@@ -39,7 +39,7 @@
             </a>
             <ul class="sub" style="display: none;">
                <li>
-                  <a href="admin/product.html">
+                  <a href="<?php print admin_url('product');?>">
                   Sản phẩm							</a>
                </li>
                <li>

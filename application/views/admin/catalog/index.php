@@ -1,6 +1,5 @@
 <?php $this->load->view('admin/catalog/head', $this->data)?>
 
-<div class="line"></div>
 <div class="wrapper">
     <?php  $this->load->view('admin/message', $this->data);?>
     <div class="widget">
