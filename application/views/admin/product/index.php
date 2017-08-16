@@ -1,10 +1,6 @@
-<?php
-	echo '<pre>';
-	print_r($this->input->get('id'));
-	echo '</pre>';
-?>
 <?php $this->load->view('admin/product/head', $this->data)?>
 <div class="wrapper" id="main_product">
+    <?php  $this->load->view('admin/message', $this->data);?>
     <div class="widget">
         <div class="title">
             <span class="titleIcon"><input id="titleCheck" name="titleCheck" type="checkbox"></span>
@@ -82,7 +78,7 @@
                 <tr>
                     <td colspan="6">
                         <div class="list_action itemActions">
-                            <a href="#submit" id="submit" class="button blueB" url="admin/product/del_all.html">
+                            <a href="#submit" id="submit" class="button blueB" url="<?php print admin_url('product/delete_all');?>">
                             <span style="color:white;">Xóa hết</span>
                             </a>
                         </div>
@@ -94,7 +90,7 @@
             </tfoot>
             <tbody class="list_item">
             <?php foreach ($list as $k => $val) :?>
-                <tr class="row_9">
+                <tr class="row_<?php print $val->id;?>">
                     <td><input name="id[]" value="<?php print $val->id;?>" type="checkbox"></td>
                     <td class="textC"><?php print $val->id;?></td>
                     <td>
@@ -109,14 +105,19 @@
                     </td>
                     <td class="textR">
                         <?php if ($val->discount > 0) : ?>
-                            <?php $new_price = $val->price - $val->discount;?>
+                            <?php
+                                $discount = ($val->discount * intval($val->price))  / 100;
+                                $new_price = $val->price - $discount;  
+                            ?>
                             <strong style="color:#f00"><?php print number_format($new_price);?></strong>
                             <p style="text-decoration:line-through"><?php print number_format($val->price);?></p>
                         <?php else :?>
                         <strong style="color:#f00"><?php print number_format($val->price);?></strong>
                         <?php endif;?>
                     </td>
-                    <td class="textC">01-01-1970</td>
+                    <td class="textC">
+                        <?php print date("d-j-Y" ,$val->created);?>
+                    </td>
                     <td class="option textC">
                         <a href="<?php print admin_url('product/view/'.$val->id);?>" target="_blank" class="tipS" title="Xem chi tiết sản phẩm">
                             <img src="<?php print public_url('/admin/')?>images/icons/color/view.png">

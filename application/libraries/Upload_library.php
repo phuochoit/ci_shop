@@ -6,7 +6,6 @@ class Upload_library
     var $CI = '';
     function __construct()
     {
-        parent::__construct();
         $this->CI = & get_instance();
     }
 
@@ -55,12 +54,11 @@ class Upload_library
 
             if ($this->CI->upload->do_upload()) {
                 $data = $this->CI->upload->data();
-            } else {
-                $data = $this->CI->upload->display_errors();
+                $arr_list[$i] = $data['file_name'];
             }
         }
 
-        return $data;
+        return $arr_list;
     }
 
     /*
@@ -75,11 +73,11 @@ class Upload_library
         //Định dạng file được phép tải
         $config['allowed_types'] = 'jpg|png|gif';
         //Dung lượng tối đa
-        $config['max_size']      = '500';
+        $config['max_size']      = '5000';
         //Chiều rộng tối đa
-        $config['max_width']     = '1028';
+        // $config['max_width']     = '1028';
         //Chiều cao tối đa
-        $config['max_height']    = '1028';
+        // $config['max_height']    = '1028';
 
         return $config;
     }

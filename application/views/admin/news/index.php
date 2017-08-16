@@ -1,4 +1,4 @@
-<?php $this->load->view('admin/catalog/head', $this->data)?>
+<?php $this->load->view('admin/news/head', $this->data)?>
 
 <div class="wrapper">
     <?php  $this->load->view('admin/message', $this->data);?>
@@ -15,8 +15,9 @@
                 <tr>
                     <td style="width:10px;"><img src="<?php print public_url('/admin/')?>images/icons/tableArrows.png" /></td>
                     <td style="width:80px;">Mã số</td>
-                    <td style="width:100px;">Thứ Tự Hiển Thị</td>
-                    <td>Tên Danh Mục</td>
+                    <td style="width:100px;">Hình</td>
+                    <td>Title</td>
+                    <td>Mô tả</td>
                     <td style="width:100px;">Hành động</td>
                 </tr>
             </thead>
@@ -45,16 +46,22 @@
                     </td>
                     <td class="textC"><?php print $row->id;?></td>
                     <td>
-                        <span title="<?php print $row->sort_order;?>" class="tipS"><?php print $row->sort_order;?></span>
+                        <span title="<?php print $row->title;?>" class="tipS"><?php print $row->title;?></span>
                     </td>
                     <td>
-                        <span title="<?php print $row->name;?>" class="tipS"><?php print $row->name;?></span>
+                        <div class="image_thumb">
+                            <img src="<?php print base_url('upload/news/'.$row->image_link);?>" height="50">
+                            <div class="clear"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <span title="<?php print $row->intro;?>" class="tipS"><?php print $row->intro;?></span>
                     </td>
                     <td class="option">
-                        <a href="<?php print admin_url('catalog/edit/'.$row->id);?>" title="Chỉnh sửa" class="tipS ">
+                        <a href="<?php print admin_url('news/edit/'.$row->id);?>" title="Chỉnh sửa" class="tipS ">
                             <img src="<?php print public_url('/admin/')?>images/icons/color/edit.png" />
                         </a>
-                        <a href="<?php print admin_url('catalog/delete/'.$row->id);?>" title="Xóa" class="tipS verify_action" >
+                        <a href="<?php print admin_url('news/delete/'.$row->id);?>" title="Xóa" class="tipS verify_action" >
                             <img src="<?php print public_url('admin/')?>images/icons/color/delete.png" />
                         </a>
                     </td>

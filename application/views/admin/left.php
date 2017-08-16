@@ -99,7 +99,7 @@
                   Slide							</a>
                </li>
                <li>
-                  <a href="admin/news.html">
+                  <a href="<?php print admin_url('news');?>">
                   Tin tức							</a>
                </li>
                <li>

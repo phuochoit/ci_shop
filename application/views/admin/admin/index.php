@@ -6,7 +6,7 @@
     <div class="widget">
     
         <div class="title">
-            <span class="titleIcon"><div class="checker" id="uniform-titleCheck"><span><input id="titleCheck" name="titleCheck" style="opacity: 0;" type="checkbox"></span></div></span>
+
             <h6>Danh sách Thành viên</h6>
             <div class="num f12">Tổng số: <b><?php print $total;?></b></div>
         </div>
@@ -14,7 +14,7 @@
         <table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
             <thead>
                 <tr>
-                    <td style="width:10px;"><img src="<?php print public_url('/admin/')?>images/icons/tableArrows.png" /></td>
+
                     <td style="width:80px;">Mã số</td>
                     <td>Username</td>
                     <td>Tên</td>
@@ -26,9 +26,7 @@
                 <tr>
                     <td colspan="7">
                          <div class="list_action itemActions">
-                                <a href="#submit" id="submit" class="button blueB" url="user/del_all.html">
-                                    <span style='color:white;'>Xóa hết</span>
-                                </a>
+                               
                          </div>
                             
                          <div class='pagination'>
@@ -41,9 +39,7 @@
                 <?php foreach ($list as $k => $row) :?>
                 <!-- Filter -->
                 <tr>
-                    <td>
-                        <input type="checkbox" name="id[]" value="<?php echo $row->id;?>" />
-                    </td>
+    
                     <td class="textC"><?php print $row->id;?></td>
                     <td>
                         <span title="<?php print $row->username;?>" class="tipS"><?php print $row->username;?></span>

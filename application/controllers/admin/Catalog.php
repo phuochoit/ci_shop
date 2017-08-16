@@ -112,7 +112,7 @@ class Catalog extends MY_Controller
                     'parent_id' => intval($parent_id) ,
                 );
                 // set data to database
-                if ($this->catalog_model->update($id,$data)) {
+                if ($this->catalog_model->update($id, $data)) {
                     // set message
                         $this->session->set_flashdata('message', 'Update Catalog success!');
                 } else {
@@ -140,12 +140,48 @@ class Catalog extends MY_Controller
         //get id delete catalog
         $id = $this->uri->rsegment(3);
         $id = intval($id);
+        $this->__del($id);
+        // redirect page catalog/index
+        redirect(admin_url('catalog'));
+    }
 
+    public function delete_all()
+    {
+        //get id delete catalog
+        $id = $this->input->post('ids');
+        if (!empty($id)) {
+            foreach ($id as $key => $v) {
+               $this->__del($v,false);
+            }
+            
+        }
+    }
+
+    function __del($id,$redirect = true){
         // get info admin
         $info = $this->catalog_model->get_info($id);
         if (!$info) {
             $this->session->set_flashdata('message', 'This Catalog does not exist!');
-            redirect(admin_url('catalog'));
+            if($redirect){
+                 redirect(admin_url('catalog'));
+            }else{
+                return false;
+            }
+        }
+        // check product of catalog
+        $this->load->model('product_model');
+        $product = $this->product_model->get_info_rule(array('catalog_id' => $id ),'id');
+
+        if($product){
+            
+            $this->session->set_flashdata('message', 'Delete Catalog failed '.$info->name.' please delete all product of Catalog !');
+
+            if($redirect){
+                 redirect(admin_url('catalog'));
+            }else{
+                return false;
+            }
+
         }
 
         // run delete
@@ -156,7 +192,5 @@ class Catalog extends MY_Controller
             $this->session->set_flashdata('message', 'Upadte Catalog failed!');
         }
 
-        // redirect page catalog/index
-        redirect(admin_url('catalog'));
     }
 }
